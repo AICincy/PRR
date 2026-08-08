@@ -1,0 +1,7 @@
+{
+  "packages": [
+    {"package_id":"PKG_1","control_record":"1.pdf","production_archive":"26-145_2026-08-07 11_33_06 -0400.zip","expected_level1_count":24,"package_status":null},
+    {"package_id":"PKG_2","control_record":"2.pdf","production_archive":"Metro PRR Now.zip","expected_level1_count":72,"package_status":null},
+    {"package_id":"PKG_3","control_record":"3.pdf","production_archive":null,"expected_level1_count":0,"package_status":"NO_OUTPUT_PRODUCTION_RESPONSE_RECEIVED"}
+  ]
+}

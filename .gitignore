@@ -1,0 +1,19 @@
+# Immutable evidence and generated forensic outputs
+upload/
+analysis/
+
+# Superpowers execution/review scratch and duplicate continuity copy
+.superpowers/
+.worktrees/
+library_current/
+
+# Python/runtime noise
+__pycache__/
+*.py[cod]
+*.sqlite3
+.venv/
+venv/
+
+# Editor/OS noise
+.DS_Store
+Thumbs.db
