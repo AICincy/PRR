@@ -18,7 +18,7 @@ from tests.helpers import new_test_db, seed_package_source
 
 TASK_4_BASE_SCHEMA = (
     Path(__file__).resolve().parents[1]
-    / ".superpowers/sdd/2026-08-07-metro-forensic-ledger-implementation/task-4-base/metro_forensics/schema.sql"
+    / "tests/fixtures/migrations/task4_base_schema.sql"
 )
 
 

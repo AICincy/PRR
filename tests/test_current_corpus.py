@@ -52,12 +52,15 @@ from metro_forensics.temporal_legal import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PRIVATE_CORPUS_ROOT = Path(
+    os.environ.get("METRO_PRIVATE_CORPUS_ROOT", ROOT / "upload")
+).resolve()
+RUN_PRIVATE_CORPUS_TESTS = os.environ.get("METRO_RUN_PRIVATE_CORPUS_TESTS") == "1"
 
 
 class CurrentCorpusTests(unittest.TestCase):
     def test_acceptance_matrix(self):
         """Run every approved invariant over a populated synthetic forensic ledger."""
-        upload_hashes = _upload_hashes()
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             db, evidence_root, evidence_hashes = _seed_acceptance_fixture(root)
@@ -93,8 +96,6 @@ class CurrentCorpusTests(unittest.TestCase):
                     self.assertTrue(satisfied)
 
             self.assertEqual(evidence_hashes, _tree_hashes(evidence_root))
-
-        self.assertEqual(upload_hashes, _upload_hashes())
 
     def test_acceptance_violation_queries_detect_targeted_breaks(self):
         """Fail if the strengthened 5/6/12/14/17/18 checks become vacuous."""
@@ -308,13 +309,17 @@ class CurrentCorpusTests(unittest.TestCase):
             )
             self.assertFalse(_all_report_totals_reconcile(db, summary))
 
+    @unittest.skipUnless(
+        RUN_PRIVATE_CORPUS_TESTS,
+        "requires private Metro corpus; set METRO_RUN_PRIVATE_CORPUS_TESTS=1",
+    )
     def test_locked_level1_counts(self):
         """Fail if the controlled archive inventory differs from the fixed manifest."""
         with tempfile.TemporaryDirectory() as td:
             db = connect(Path(td) / "ledger.sqlite3")
             initialize(db)
 
-            ingest_manifest(db, ROOT / "config/corpus.json", ROOT / "upload")
+            ingest_manifest(db, ROOT / "config/corpus.json", PRIVATE_CORPUS_ROOT)
 
             rows = dict(db.execute(
                 "SELECT package_id, count(source_file_id) FROM package "
@@ -326,6 +331,10 @@ class CurrentCorpusTests(unittest.TestCase):
             ).fetchone()[0]
             self.assertEqual("NO_OUTPUT_PRODUCTION_RESPONSE_RECEIVED", status)
 
+    @unittest.skipUnless(
+        RUN_PRIVATE_CORPUS_TESTS,
+        "requires private Metro corpus; set METRO_RUN_PRIVATE_CORPUS_TESTS=1",
+    )
     def test_cli_intake_preserves_locked_uploads_and_remains_in_progress(self):
         """Fail if the CLI alters uploads, mis-inventories the corpus, or marks intake complete."""
         before_hashes = _upload_hashes()
@@ -334,7 +343,7 @@ class CurrentCorpusTests(unittest.TestCase):
             self.assertEqual(0, main(["init", "--db", str(db_path)]))
             self.assertEqual(0, main([
                 "ingest", "--db", str(db_path), "--manifest", str(ROOT / "config/corpus.json"),
-                "--evidence-root", str(ROOT / "upload"),
+                "--evidence-root", str(PRIVATE_CORPUS_ROOT),
             ]))
 
             db = connect(db_path)
@@ -927,7 +936,7 @@ class CurrentCorpusTests(unittest.TestCase):
 
 def _upload_hashes() -> dict[str, str]:
     """Hash the bounded five-file evidence inventory without modifying it."""
-    uploads = sorted((ROOT / "upload").iterdir())
+    uploads = sorted(PRIVATE_CORPUS_ROOT.iterdir())
     if len(uploads) != 5:
         raise AssertionError("expected exactly five upload inputs")
     return {

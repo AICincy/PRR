@@ -6,6 +6,16 @@ This project maintains a SQLite-backed, review-gated ledger for the Metro public
 
 Everything beneath `upload/` is immutable, read-only evidence. Intake hashes and inventories archive members without extracting or changing the uploads. Never write derived output into `upload/`; use `analysis/derivatives/` instead.
 
+The public repository intentionally excludes the private Metro evidence corpus. The default test suite therefore runs all synthetic/unit/migration coverage and skips the two private-corpus integration checks. To run those checks against a separately held immutable corpus:
+
+```bash
+METRO_RUN_PRIVATE_CORPUS_TESTS=1 \
+METRO_PRIVATE_CORPUS_ROOT=/path/to/immutable/upload \
+python3 -m unittest discover -s tests
+```
+
+Historical database schemas required by migration tests are preserved as source-only fixtures under `tests/fixtures/migrations/`; no evidence or forensic ledger state is included there.
+
 ## Staged workflow
 
 Initialize a ledger, then inventory the declared Level 1 evidence:

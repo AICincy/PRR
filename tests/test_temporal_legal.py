@@ -14,11 +14,11 @@ from tests.helpers import seeded_citation_db, seeded_provisional_finding_db
 
 TASK_6_BASE_SCHEMA = (
     Path(__file__).resolve().parents[1]
-    / ".superpowers/sdd/2026-08-07-metro-forensic-ledger-implementation/task-6-base/metro_forensics/schema.sql"
+    / "tests/fixtures/migrations/task6_base_schema.sql"
 )
 TASK_7_BASE_SCHEMA = (
     Path(__file__).resolve().parents[1]
-    / ".superpowers/sdd/2026-08-07-metro-forensic-ledger-implementation/task-7-base/metro_forensics/schema.sql"
+    / "tests/fixtures/migrations/task7_base_schema.sql"
 )
 
 

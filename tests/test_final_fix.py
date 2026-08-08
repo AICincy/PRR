@@ -740,8 +740,7 @@ class TemporalLegalAndMigrationTests(unittest.TestCase):
         """Fail if legacy backfill assigns one shared authority to only one assessment."""
         legacy_schema = (
             Path(__file__).resolve().parents[1]
-            / ".superpowers/sdd/2026-08-07-metro-forensic-ledger-implementation/"
-            "task-7-base/metro_forensics/schema.sql"
+            / "tests/fixtures/migrations/task7_base_schema.sql"
         )
         db = sqlite3.connect(":memory:")
         db.row_factory = sqlite3.Row
