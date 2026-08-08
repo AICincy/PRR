@@ -17,3 +17,62 @@ venv/
 # Editor/OS noise
 .DS_Store
 Thumbs.db
+docs/sources/2 Docs/SORTA 2.docx
+docs/sources/2 Docs/SORTA 2.pdf
+docs/sources/SORTA 1.docx
+docs/sources/2 Docs/Public Record Response to emailme513@proton.me - 07-29-2026.pdf
+skills/aai-cognitive-interface/agents/openai.yaml
+skills/aai-cognitive-interface/assets/icon.svg
+skills/aai-cognitive-interface/references/continuation-protocol.md
+skills/aai-cognitive-interface/references/crisis-protocol.md
+skills/aai-cognitive-interface/references/execution-trail-template.md
+skills/aai-cognitive-interface/references/register-examples.md
+skills/aai-cognitive-interface/references/retrieval-scaffolding.md
+skills/aai-cognitive-interface/SKILL.md
+skills/authority-currency-auditor/agents/openai.yaml
+skills/authority-currency-auditor/assets/icon.svg
+skills/authority-currency-auditor/references/ohio-civic-records-watch-list.md
+skills/authority-currency-auditor/SKILL.md
+skills/claim-source-auditor/agents/openai.yaml
+skills/claim-source-auditor/assets/icon.svg
+skills/claim-source-auditor/references/status-taxonomy.md
+skills/claim-source-auditor/scripts/diff_timestamps.py
+skills/claim-source-auditor/SKILL.md
+skills/forensic-evidentiary-drafting/agents/openai.yaml
+skills/forensic-evidentiary-drafting/assets/icon.svg
+skills/forensic-evidentiary-drafting/references/hamilton-county-filing.md
+skills/forensic-evidentiary-drafting/references/matter-file-template.md
+skills/forensic-evidentiary-drafting/references/sixth-circuit-first-amendment-recording.md
+skills/forensic-evidentiary-drafting/scripts/correct_timestamps.py
+skills/forensic-evidentiary-drafting/scripts/hash_evidence.py
+skills/forensic-evidentiary-drafting/scripts/validate_document.py
+skills/forensic-evidentiary-drafting/SKILL.md
+skills/forensic-evidentiary-drafting/references/section-templates.md
+skills/frontend-design/agents/openai.yaml
+skills/frontend-design/assets/icon.svg
+skills/frontend-design/SKILL.md
+skills/prompt-architecture-engineering/agents/openai.yaml
+skills/prompt-architecture-engineering/assets/icon.svg
+skills/prompt-architecture-engineering/references/civic-legal-skill-patterns.md
+skills/prompt-architecture-engineering/references/prompt-templates.md
+skills/record-series-builder/agents/openai.yaml
+skills/record-series-builder/assets/icon.svg
+skills/record-series-builder/scripts/build_index.py
+skills/record-series-builder/scripts/inventory.py
+skills/record-series-builder/scripts/render_diff.py
+skills/record-series-builder/SKILL.md
+skills/prompt-architecture-engineering/SKILL.md
+skills/regulatory-complaint-drafting/assets/icon.svg
+skills/regulatory-complaint-drafting/references/first-amendment-public-records-recipients.md
+skills/regulatory-complaint-drafting/references/recipient-system.md
+skills/regulatory-complaint-drafting/SKILL.md
+skills/research-execution-briefs/agents/openai.yaml
+skills/research-execution-briefs/assets/icon.svg
+skills/research-execution-briefs/references/source-hierarchy.md
+skills/research-execution-briefs/SKILL.md
+skills/strategic-brief-architect-style/agents/openai.yaml
+skills/strategic-brief-architect-style/assets/icon.svg
+skills/strategic-brief-architect-style/SKILL.md
+skills/regulatory-complaint-drafting/agents/openai.yaml
+docs/sources/1 Docs/SORTA 1.pdf
+docs/sources/1 Docs/SORTA 1.pdf
